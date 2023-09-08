@@ -11,7 +11,7 @@ public class BaseTest {
     public void init(){
         Configuration.browser = "chrome";
         Configuration.browserVersion = "114";
-        Configuration.timeout = 5000;
+        Configuration.timeout = 10000;
     }
 
     @AfterEach

@@ -1,6 +1,5 @@
 package ua.ithillel.pages.dynamic;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ua.ithillel.pages.BasePage;
 
@@ -22,6 +21,6 @@ public class ElementHiddenPage extends BasePage {
     }
 
     public SelenideElement getUploadedFileLabel() {
-        return elementHidden.shouldBe(Condition.visible).shouldNotBe(Condition.hidden);
+        return elementHidden;
     }
 }

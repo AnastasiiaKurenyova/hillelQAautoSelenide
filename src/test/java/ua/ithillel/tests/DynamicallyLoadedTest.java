@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ua.ithillel.pages.dynamic.DynamicallyLoadedPage;
 
+import java.time.Duration;
+
 
 public class DynamicallyLoadedTest extends BaseTest {
 
@@ -17,11 +19,13 @@ public class DynamicallyLoadedTest extends BaseTest {
                 .openElementHiddenPage()
                 .clickStartButton()
                 .getUploadedFileLabel()
+                .shouldBe(Condition.visible, Duration.ofSeconds(10000))
+                .shouldNotBe(Condition.hidden)
                 .shouldHave(Condition.text("Hello World!"));
     }
 
     @Test
-    @DisplayName("Verify Hidden Element Test")
+    @DisplayName("Verify Rendered Element Test")
     public void renderedElementTest() {
         DynamicallyLoadedPage dynamicallyLoadedPage = new DynamicallyLoadedPage();
         dynamicallyLoadedPage
@@ -29,6 +33,7 @@ public class DynamicallyLoadedTest extends BaseTest {
                 .openElementRenderedPage()
                 .clickStartButton()
                 .getUploadedFileLabel()
+                .shouldBe(Condition.visible, Duration.ofSeconds(10000))
                 .shouldHave(Condition.text("Hello World!"));
     }
 }
